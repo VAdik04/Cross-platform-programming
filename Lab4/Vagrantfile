@@ -1,0 +1,36 @@
+Vagrant.configure("2") do |config|
+    config.vm.define("mac") do |mac|
+        mac.vm.box = "nick-invision/macos-bigsur-base"
+        mac.vm.boot_timeout = 3000
+
+        mac.vm.provider(:virtualbox) do |vb|
+            vb.name = "macos-bigsur-base"
+            vb.memory = 4096
+        end
+
+        mac.vm.provision(:shell, privileged: false, path: "mac-start.sh")
+    end
+
+    config.vm.define("linux") do |linux|
+        linux.vm.box = "generic/ubuntu2004"
+
+        linux.vm.provider(:virtualbox) do |vb|
+            vb.name = "ubuntu2004"
+        end
+
+        linux.vm.provision(:shell, privileged: false, path: "linux-start.sh")
+    end
+
+    config.vm.define("windows") do |windows|
+        windows.vm.box = "gusztavvargadr/windows-10"
+        windows.vm.boot_timeout = 3000
+        windows.vm.communicator = :winssh
+
+        windows.vm.provider(:virtualbox) do |vb|
+            vb.name = "windows-10"
+        end
+
+        windows.vm.provision(:shell, privileged: false, reboot: true, path: "WindowsStart1.ps1")
+        windows.vm.provision(:shell, privileged: false, path: "WindowsStart2.ps1")
+    end
+end

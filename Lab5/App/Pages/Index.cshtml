@@ -1,0 +1,30 @@
+﻿@page
+@{
+    ViewData["Title"] = "Web App";
+}
+
+
+<div class="row">
+    <div class="col-7 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+                Ласкаво просимо у веб-додаток!
+            </div>
+            <div class="card-body">
+                <p>
+                    <a href="http://localhost:5001">Сервер аутентифікації та авторизації</a>.
+                    Увійдіть або створіть обліковий запис за допомогою інструменту ідентифікації
+                    Duende IdentityServer.
+                </p>
+                <p>
+                    <a asp-page="/Account/About">Сторінка профілю</a>.
+                    Перегляньте інформацію про свій профіль, яку ви вказали при реєстрації.
+                </p>
+                <p>
+                    <a asp-page="/Lab/List">Сторінки завдань</a>.
+                    Запустіть лабораторні роботи.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
