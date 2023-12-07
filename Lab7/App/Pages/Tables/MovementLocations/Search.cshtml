@@ -1,0 +1,86 @@
+﻿@page
+@model SearchModel
+@{
+    ViewData["Title"] = "Пошук у таблиці MovementLocation";
+}
+
+<h1>Пошук</h1>
+
+<form method="post">
+    @if (Model.Patterns.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Елементи пошуку:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.Patterns.Count; ++i)
+                {
+                    <tr>
+                        <td>@Model.Patterns[i]</td>
+                        <td>
+                            <input asp-for=Patterns[i] value=@Model.Patterns[i] hidden />
+                            <button type="submit"
+                                    name="DeletionPatternIndex"
+                                    value=@i
+                                    class="btn btn-danger">
+                                Видалити
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Немає елементів пошуку.</p>
+    }
+
+    <div class="form-group mt-5">
+        <label asp-for=NewPattern>Новий елемент пошуку:</label>
+        <input asp-for=NewPattern class="form-control" />
+    </div>
+    <button type="submit" name="Button" value="Add" class="btn btn-primary mt-3">Додати</button>
+    <button type="submit" name="Button" value="Search" class="btn btn-primary mt-3">Пошук</button>
+</form>
+
+    @if (Model.MovementLocations.Length > 0)
+    {
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>ShipmentLocationId</th>
+                    <th>ShipmentId</th>
+                    <th>FromLocationId</th>
+                    <th>ToLocationId</th>
+                    <th>DateStarted</th>
+                    <th>DateCompleted</th>
+                    <th>OtherDetails</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movementLocation in Model.MovementLocations)
+                {
+                    <tr>
+                        <td>@movementLocation.ShipmentLocationId</td>
+                        <td>@movementLocation.ShipmentId</td>
+                        <td>@movementLocation.FromLocationId</td>
+                        <td>@movementLocation.ToLocationId</td>
+                        <td>@movementLocation.DateStarted</td>
+                        <td>@movementLocation.DateCompleted</td>
+                        <td>@movementLocation.OtherDetails</td>
+                        <td>
+                            <a asp-page="Details" asp-route-id="@movementLocation.ShipmentLocationId">Деталі</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="mt-5">Немає знайдених елементів.</p>
+    }

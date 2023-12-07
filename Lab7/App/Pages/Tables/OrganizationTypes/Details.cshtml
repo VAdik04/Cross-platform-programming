@@ -1,0 +1,17 @@
+﻿@page "{id}"
+@model DetailsModel
+
+<h1>Елемент OrganizationType</h1>
+
+<div>
+    <strong>OrganizationTypeCode:</strong>
+    <span>@Model.OrganizationType.OrganizationTypeCode</span>
+</div>
+<div>
+    <strong>OrganizationTypeDescription:</strong>
+    <span>@Model.OrganizationType.OrganizationTypeDescription</span>
+</div>
+
+<p>
+    <a asp-page="./Index">Повернутися до списку</a>
+</p>

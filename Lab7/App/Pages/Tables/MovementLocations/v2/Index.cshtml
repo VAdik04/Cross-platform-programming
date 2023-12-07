@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+
+<h1>Список MovementLocations, які почались протягом тижня</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ShipmentLocationId</th>
+            <th>ShipmentId</th>
+            <th>FromLocationId</th>
+            <th>ToLocationId</th>
+            <th>DateStarted</th>
+            <th>DateCompleted</th>
+            <th>OtherDetails</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movementLocation in Model.MovementLocations)
+        {
+            <tr>
+                <td>@movementLocation.ShipmentLocationId</td>
+                <td>@movementLocation.ShipmentId</td>
+                <td>@movementLocation.FromLocationId</td>
+                <td>@movementLocation.ToLocationId</td>
+                <td>@movementLocation.DateStarted</td>
+                <td>@movementLocation.DateCompleted</td>
+                <td>@movementLocation.OtherDetails</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@movementLocation.ShipmentLocationId">Деталі</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

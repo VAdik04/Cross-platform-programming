@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+
+<h1>Список LocationType</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>LocationTypeCode</th>
+            <th>LocationTypeDescription</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var locationType in Model.LocationTypes)
+        {
+            <tr>
+                <td>@locationType.LocationTypeCode</td>
+                <td>@locationType.LocationTypeDescription</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@locationType.LocationTypeCode">Детальніше</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

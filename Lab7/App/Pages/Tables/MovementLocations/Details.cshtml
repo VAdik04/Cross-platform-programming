@@ -1,0 +1,37 @@
+﻿@page "{id}"
+@model DetailsModel
+
+<h1>Елемент MovementLocation</h1>
+
+<div>
+    <strong>ShipmentLocationId:</strong>
+    <span>@Model.MovementLocation.ShipmentLocationId</span>
+</div>
+<div>
+    <strong>ShipmentId:</strong>
+    <span>@Model.MovementLocation.ShipmentId</span>
+</div>
+<div>
+    <strong>FromLocationId:</strong>
+    <span>@Model.MovementLocation.FromLocationId</span>
+</div>
+<div>
+    <strong>ToLocationId:</strong>
+    <span>@Model.MovementLocation.ToLocationId</span>
+</div>
+<div>
+    <strong>DateStarted:</strong>
+    <span>@Model.MovementLocation.DateStarted</span>
+</div>
+<div>
+    <strong>DateCompleted:</strong>
+    <span>@Model.MovementLocation.DateCompleted</span>
+</div>
+<div>
+    <strong>OtherDetails:</strong>
+    <span>@Model.MovementLocation.OtherDetails</span>
+</div>
+
+<p>
+    <a asp-page="./Index">Повернутися до списку</a>
+</p>
