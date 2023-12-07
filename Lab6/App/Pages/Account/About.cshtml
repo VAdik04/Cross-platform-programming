@@ -1,0 +1,24 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "Про мене";
+}
+
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+                Інформація про мене
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Ім'я:</strong> @Model.UserName</li>
+                    <li><strong>ПІБ:</strong> @Model.FullName</li>
+                    <li><strong>Номер телефону:</strong> @Model.PhoneNumber</li>
+                    <li><strong>Пошта:</strong> @Model.Email</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@page
+@{
+    ViewData["Title"] = "Identity Server";
+}
+
+
+<div class="row">
+    <div class="col-7 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+                Ласкаво просимо на сервер аутентифікації та авторизації!
+            </div>
+            <div class="card-body">
+                <p>
+                    <a asp-page="/Account/Register">Сторінка реєстрації</a>.
+                    Зареєструйтесь у системі.
+                </p>
+                <p>
+                    <a asp-page="/Account/Login">Сторінка входу</a>.
+                    Увійдіть у систему.
+                </p>
+                <p>
+                    <a asp-page="/Account/Login">Вихід</a>.
+                    Вийдіть з системи.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

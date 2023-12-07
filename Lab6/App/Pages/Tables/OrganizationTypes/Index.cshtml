@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+
+<h1>Список OrganizationType</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>OrganizationTypeCode</th>
+            <th>OrganizationTypeDescription</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var organizationType in Model.OrganizationTypes)
+        {
+            <tr>
+                <td>@organizationType.OrganizationTypeCode</td>
+                <td>@organizationType.OrganizationTypeDescription</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@organizationType.OrganizationTypeCode">Деталі</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Список таблиць";
+}
+
+
+<div class="row">
+    <div class="col-7 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+                Список таблиць
+            </div>
+            <div class="card-body text-center">
+                @foreach (var tableName in Model.TableNames)
+                {
+                    <p>
+                        <a asp-page=@($"{tableName}/Index")>
+                            @tableName
+                        </a>
+                    </p>
+                }
+                <p>
+                    <a asp-page="MovementLocations/Search">
+                        Пошук (MovementLocations)
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
